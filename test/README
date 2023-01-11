@@ -1,11 +1,46 @@
+## This project is a very simple demo for how to use P4/P5 display (32x64) with ESP8266
 
-This directory is intended for PlatformIO Test Runner and project tests.
+#
 
-Unit Testing is a software testing method by which individual units of
-source code, sets of one or more MCU program modules together with associated
-control data, usage procedures, and operating procedures, are tested to
-determine whether they are fit for use. Unit testing finds problems early
-in the development cycle.
+### Part 1: Digital clokc with internet time only
 
-More information about PlatformIO Unit Testing:
-- https://docs.platformio.org/en/latest/advanced/unit-testing/index.html
+-  Connect ESP8266 pinout as below diagram:
+
+   ![Part 1](/images/Part1.png)
+
+   Connect PI and PO as follows:
+
+   | PI  | PO  |
+   | --- | --- |
+   | R2  | R1  |
+   | G1  | R2  |
+   | G2  | G1  |
+   | B1  | G2  |
+   | B2  | B1  |
+
+   Connect panel input (PI) to the ESP8266 / ESP32 as follows:
+
+   | PI  | ESP8266 GPIO (NodeMCU) |     |     | NOTE                                                                         |
+   | --- | ---------------------- | --- | --- | ---------------------------------------------------------------------------- |
+   | A   | 01 - (TX)              |     |     |
+   | B   | 02 - (D4)              |     |     |
+   | C   | 15 - (D8)              |     |     | only for 1/8, 1/16, 1/32 scan BINARY mux pattern or 1/4 STRAIGHT mux pattern |
+   | D   | 12 - (D6)              |     |     | only for 1/16, 1/32 scan BINARY mux pattern or 1/4 STRAIGHT mux pattern      |
+   | E   | _ - _                  |     |     | only for 1/32 scan                                                           |
+   | LAT | 00 - (D3)              |     |     |
+   | OE  | 03 - (RX)              |     |     |
+   | CLK | 14 - (D5)              |     |     |
+   | R1  | 13 - (D7)              |     |     |
+
+### Part 2: Digital clock with RTC module **(DS1307)** time only
+
+-  Connect ESP8266 pinout as below diagram:
+
+   ![Part 2](/images/Part2.png)
+
+   Connect I2C and ESP8266 as follows:
+
+   | I2C | ESP      |
+   | --- | -------- |
+   | SCL | 5 - (D1) |
+   | SDA | 4 - (D2) |
