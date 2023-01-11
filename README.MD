@@ -2,13 +2,13 @@
 
 #
 
-### Part 1: Digital clokc with internet time only
+### Part 1: Digital clock with internet time update
 
 -  Connect ESP8266 pinout as below diagram:
 
    ![Part 1](/images/Part1.png)
 
-   Connect PI and PO as follows:
+-  Connect PI and PO as follows:
 
    | PI  | PO  |
    | --- | --- |
@@ -18,7 +18,7 @@
    | B1  | G2  |
    | B2  | B1  |
 
-   Connect panel input (PI) to the ESP8266 / ESP32 as follows:
+-  Connect panel input (PI) to the ESP8266 / ESP32 as follows:
 
    | PI  | ESP8266 GPIO (NodeMCU) |     |     | NOTE                                                                         |
    | --- | ---------------------- | --- | --- | ---------------------------------------------------------------------------- |
@@ -26,21 +26,21 @@
    | B   | 02 - (D4)              |     |     |
    | C   | 15 - (D8)              |     |     | only for 1/8, 1/16, 1/32 scan BINARY mux pattern or 1/4 STRAIGHT mux pattern |
    | D   | 12 - (D6)              |     |     | only for 1/16, 1/32 scan BINARY mux pattern or 1/4 STRAIGHT mux pattern      |
-   | E   | _ - _                  |     |     | only for 1/32 scan                                                           |
+   | E   | N/A                    |     |     | only for 1/32 scan                                                           |
    | LAT | 00 - (D3)              |     |     |
    | OE  | 03 - (RX)              |     |     |
    | CLK | 14 - (D5)              |     |     |
    | R1  | 13 - (D7)              |     |     |
 
-### Part 2: Digital clock with RTC module **(DS1307)** time only
+### Part 2: Digital clock with RTC module DS1307
 
--  Connect ESP8266 pinout as below diagram:
-
-   ![Part 2](/images/Part2.png)
-
-   Connect I2C and ESP8266 as follows:
+-  Connect I2C and ESP8266 as follows:
 
    | I2C | ESP      |
    | --- | -------- |
    | SCL | 5 - (D1) |
    | SDA | 4 - (D2) |
+
+-  Connect ESP8266 pinout as below diagram:
+
+   ![Part 2](/images/Part2.png)
